@@ -2,63 +2,61 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Jogo{
+public class Jogo {
 
 
-    public void jogar() {
+    public int choiceNum() {
 
 
-        int numeroEscolhido;
+        int num = 999;
         int jogadaAtual;
-        String campo;
+
+        String input;
 
         Scanner sc = new Scanner(System.in);
         System.out.println("digite um numero de 0 a 100");
-        campo = sc.nextLine();
-        isNum(campo);
-        if (ret ==true){
+        input = sc.nextLine();
 
+        boolean numValid = validNum(input);
+        if (numValid == true) {
+            num = Integer.parseInt(input);
+            System.out.println("validado");
 
-            System.out.println("sdf");
-
-    }
-        public boolean isNum(String strNum) {
-            boolean ret = true;
-            try {
-
-                Double.parseDouble(strNum);
-
-            }catch (NumberFormatException e) {
-                ret = false;
-            }
-            return ret;
+        } else {
+            choiceNum();
         }
-
-
-
-
-
-
-        if (campo.matches("[0-9]+")){
-
-            if (campo <= 100){
-
-            }
-            System.out.println("numerico");
-        }
-        else{
-            System.out.println("nao numerico");
-        }
-
-        //numeroEscolhido = Integer.parseInt(sc.nextLine());
-
+        return num;
 
     }
 
 
+    public boolean validNum(String strNum) {
+        boolean num = true;
+        if (strNum.length() <= 2) {
+
+            System.out.println("quantidade digitos aceito: validando se é numero: " + strNum);
+
+        } else {
+            System.out.println("Atenção >>>> muitos digitos, digite um numero de 0 a 100!");
+            return false;
+        }
 
 
+        try {
 
+            Integer.parseInt(strNum);
+            System.out.println("numero aceito e validado: " +strNum);
+
+
+        } catch (
+                NumberFormatException e) {
+            System.out.println("Atenção >>>> digite um numero de 0 a 100!");
+            num = false;
+        }
+        return num;
+    }
 
 
 }
+
+
