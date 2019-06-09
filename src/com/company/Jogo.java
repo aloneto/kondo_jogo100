@@ -20,7 +20,7 @@ public class Jogo {
         boolean numValid = validNum(input);
         if (numValid == true) {
             num = Integer.parseInt(input);
-            System.out.println("validado");
+            //System.out.println("validado");
 
         } else {
             choiceNum();
@@ -30,11 +30,40 @@ public class Jogo {
     }
 
 
+    public String test(int numTest, int numerChoiced) {
+
+        int dist = 0;
+
+
+        if (numTest == numerChoiced) {
+
+            return "Voçe acertou, parabens!!";
+        }
+
+        if (numerChoiced > numTest) {
+
+
+            dist = numerChoiced - numTest;
+        } else {
+            dist = numTest - numerChoiced;
+        }
+
+        if (dist <= 5) {
+
+            return "muito quente";
+        } else if (dist <= 10) {
+            return "esta morno!!!";
+        }
+
+        return "esta muito frio!!!";
+    }
+
+
     public boolean validNum(String strNum) {
         boolean num = true;
         if (strNum.length() <= 2) {
 
-            System.out.println("quantidade digitos aceito: validando se é numero: " + strNum);
+            //System.out.println("quantidade digitos aceito: validando se é numero: " + strNum);
 
         } else {
             System.out.println("Atenção >>>> muitos digitos, digite um numero de 0 a 100!");
@@ -45,7 +74,7 @@ public class Jogo {
         try {
 
             Integer.parseInt(strNum);
-            System.out.println("numero aceito e validado: " +strNum);
+            //System.out.println("numero aceito e validado: " + strNum);
 
 
         } catch (
@@ -57,6 +86,19 @@ public class Jogo {
     }
 
 
-}
+    public void printResult(int choices, int numberChoiced) {
+        System.out.println("jogador 1 escolheu o numero: " + numberChoiced);
+
+
+            System.out.println("o jogador 2 jogou: "+choices);
+
+        }
+
+    }
+
+
+
+
+
 
 
